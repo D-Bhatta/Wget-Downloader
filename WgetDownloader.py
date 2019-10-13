@@ -1,20 +1,18 @@
-import os
-
-filename1 = "links.txt"
-filename2 = "names.txt"
-
+'''Downloads a list of links and stores them in folders from a list of folder names'''
 class WgetDownloader(object):
-
-    def open_files(self,filename1,filename2):
+    def __init__(self,filename1, filename2):
+        self.filename1 = filename1
+        self.filename2 = filename2
+    def open_files(self):
         '''Open files and read them into lists'''
         #open links file and read lines into list
         print("opening links file")
-        with open(filename1) as f:
+        with open(self.filename1) as f:
             links = f.read().splitlines()
             #print(links)
         #open names file and read lines into list
         print("opening name file")
-        with open(filename2) as f:
+        with open(self.filename2) as f:
             names = f.read().splitlines()
             #print(names)
         return names, links
@@ -27,6 +25,7 @@ class WgetDownloader(object):
         bad_characters = str.maketrans('\\"\'<>[]:/|?*.-', "______________")
         names = [x.translate(bad_characters) for x in names]
         #print(names)
+        return names
 
     def check_len(self,list1, list2):
         #len of lists test
@@ -46,13 +45,22 @@ class WgetDownloader(object):
             queries.append(init_query)
             #print(init_query)
         #print(queries)
+        return queries
 
     def wget_execution(self,queries):
+        from os import system
         #loop wget execution
         print("About to start looping")
         for i in range(len(queries)):
-            os.system(queries[i])
+            system(queries[i])
             print("finished no.{} loop".format(i))
-#exit
-print("done")
-#check if the number of queriees is the same as the number of links and names:
+    
+    def exit_function(self):
+        #exit
+        print("done")
+        #check if the number of queriees is the same as the number of links and names
+    
+    def download(self):
+        '''downloads the files'''
+        self.open_files()
+        
