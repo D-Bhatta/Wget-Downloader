@@ -1,0 +1,36 @@
+Simple Scene Boundary/Shot Transition Detection with OpenCV - PyImageSearch
+How to Develop a Naive Bayes Classifier from Scratch in Python
+How to Implement Bayesian Optimization from Scratch in Python
+A Gentle Introduction to Bayesian Belief Networks
+Recipe: How to apply functions in a Group in a Pandas DataFrame?
+Recipe: How to do Data Analysis in a Pandas DataFrame?
+Get Started With Django Part 1: Build a Portfolio App – Real Python
+Building a Python C Extension Module – Real Python
+Why software projects take longer than you think – a statistical model · Erik Bernhardsson
+Machine learning, faster
+Becoming One with the data
+Linear algebra resources
+Iyad Rahwan Is the Anthropologist of Artificial Intelligence | Quanta Magazine
+An Introduction to D3.js
+Python rounds float values by converting them to string and then back | Hacker News
+Python for NLP: Working with Facebook FastText Library
+Understanding SAT by Implementing a Simple SAT Solver in Python
+pandas blog – 2019 Pandas User Survey
+Django + Elasticsearch. Searching for awesome TED Talks – apirobot
+tryexceptpass - Easy Clustering with Docker Swarm - Designing CI/CD Systems
+J-O Eriksson's blog – Pieces of Py #1: Decorator with arguments
+Building a CLI for Firmware Projects using Invoke | Interrupt
+How to work with scrolling on Web Pages
+Web Components Custom Elements
+How to use the HTML img tag
+How to use the HTML a tag to create links
+How to use the Drag and Drop API
+HTML tags for text
+How to use tables in HTML
+Unix Shells Tutorial
+Keyboard events
+Handling forms in JavaScript
+How to use the HTML figure tag
+How to use the HTML picture tag
+Every developer should have a blog. Here’s why, and how to stick with it
+Tutorial purgatory from the perspective of a tutorial maker
