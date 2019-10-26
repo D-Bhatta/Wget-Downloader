@@ -21,7 +21,7 @@ Here, links.txt contains all the links to be downloaded. Also, names.txt contain
     link999
 
 ## Boundary Cases:
-1. [ ] File Not found
+1. [x] File Not found
 2. [ ] File is empty
 3. [ ] internet not available
 4. [ ] can't write to directory
