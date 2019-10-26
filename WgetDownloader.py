@@ -8,12 +8,25 @@ class WgetDownloader(object):
         self.queries = []
     def open_files(self):
         '''Open files and read them into lists'''
-        
+
+        #check if file is empty
+        #
+        #Define exceptions
+        class Error(Exception):
+            """Base class for other exceptions"""
+            pass
+
+        class FileIsEmptyError(Error):
+            """Raised when file is empty"""
+            pass
+
         #open links file and read lines into list
         print("opening links file")
         try:
             with open(self.filename1) as f:
                 self.links = f.read().splitlines()
+                if not self.links:
+                    raise FileIsEmptyError("links.txt is empty")
                 #print(self.links)
         except FileNotFoundError:
             print("file not found")
@@ -23,9 +36,14 @@ class WgetDownloader(object):
         try:
             with open(self.filename2) as f:
                 self.names = f.read().splitlines()
+                if not self.names:
+                    raise FileIsEmptyError("names.txt is empty")
                 #print(self.names)
         except FileNotFoundError:
             print("file not found")
+        
+
+
 
     def clean_lists(self):
         '''clean the lists of strings'''
