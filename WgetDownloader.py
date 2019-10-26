@@ -8,16 +8,24 @@ class WgetDownloader(object):
         self.queries = []
     def open_files(self):
         '''Open files and read them into lists'''
+        
         #open links file and read lines into list
         print("opening links file")
-        with open(self.filename1) as f:
-            self.links = f.read().splitlines()
-            #print(self.links)
+        try:
+            with open(self.filename1) as f:
+                self.links = f.read().splitlines()
+                #print(self.links)
+        except FileNotFoundError:
+            print("file not found")
+        
         #open names file and read lines into list
         print("opening name file")
-        with open(self.filename2) as f:
-            self.names = f.read().splitlines()
-            #print(self.names)
+        try:
+            with open(self.filename2) as f:
+                self.names = f.read().splitlines()
+                #print(self.names)
+        except FileNotFoundError:
+            print("file not found")
 
     def clean_lists(self):
         '''clean the lists of strings'''
