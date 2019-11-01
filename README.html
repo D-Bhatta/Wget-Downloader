@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Wget-Downloader</title>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        
+        
+    </head>
+    <body class="vscode-light">
+        <h1 id="wget-downloader">Wget-Downloader</h1>
+<p>Downloads a list of links and stores them in folders from a list of folder names</p>
+<h2 id="usage">Usage</h2>
+<pre><code>Wget_downloader.py &quot;links.txt&quot; &quot;names.txt&quot;
+</code></pre>
+<p>Here, links.txt contains all the links to be downloaded. Also, names.txt contains all the folder names the links will be downloaded into.</p>
+<h2 id="example">Example:</h2>
+<h3 id="%22linkstxt%22">&quot;links.txt&quot;</h3>
+<pre><code>link1.com
+link2.com
+...
+link999.com
+</code></pre>
+<h3 id="%22namestxt%22">&quot;names.txt&quot;</h3>
+<pre><code>link1
+link2
+...
+link999
+</code></pre>
+<h2 id="boundary-cases">Boundary Cases:</h2>
+<ol class="contains-task-list">
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> File Not found</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> File is empty</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> internet not available</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> can't write to directory</li>
+</ol>
+<h2 id="tests">Tests</h2>
+<ol class="contains-task-list">
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> All files are downloaded</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> Correct files in correct order</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> Passing boundary cases without error</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> Load tests</li>
+</ol>
+
+    </body>
+    </html>
