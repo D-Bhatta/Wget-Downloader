@@ -60,16 +60,16 @@ class WgetDownloader(object):
             print("The length of the lists do not match. Check the data.",
             "names :{}".format(len(self.names)), 
             "links : {}".format(len(self.links)))
-            exit()
+            self.exit_function(status=1)
     
     def check_list_empty(self):
         '''check if lists are empty'''
         if len(self.names)==0:
             print("The names list is empty")
-            exit()
+            self.exit_function(status=1)
         if len(self.links)==0:
             print("The links list is empty")
-            exit()
+            self.exit_function(status=1)
 
     def query_builder(self):
         '''build query list'''
@@ -86,6 +86,14 @@ class WgetDownloader(object):
     
     def check_network(self):
         '''check network connection'''
+        class Error(Exception):
+            "Base class for all errors"
+            pass
+        
+        class NoInternetAvailableError(Error):
+            "No internet connection is available"
+            pass
+
         import socket
 
         def internet(host="8.8.8.8", port=53, timeout=3):
@@ -100,9 +108,14 @@ class WgetDownloader(object):
                 return True
             except socket.error as ex:
                 print(ex)
-                return False
+                raise NoInternetAvailableError("No internet is available")
         
-        internet()
+        try:
+            internet_status = internet()
+        except NoInternetAvailableError:        
+            if internet_status() != True:
+                print("Network has failed")
+                self.exit_function(status=4)
 
     def wget_execution(self):
         '''executes the queries: calls wget with link and folder name along with flags"-E -H -k -K -p -e robots=off -nH -nd -P" and link is stored in folder'''
@@ -128,12 +141,15 @@ class WgetDownloader(object):
                     raise WgetError("Wget error")
             except WgetError:
                 print("Wget couldn't download the link and returned status {}".format(status))
+        #check if the number of queriees is the same as the number of links and names
         print("expected loops:{}".format(len(self.queries)-1))
     
-    def exit_function(self):
+    def exit_function(self, status):
         '''exit'''
+        from sys import exit
         print("done")
-        #check if the number of queriees is the same as the number of links and names
+        exit(status)
+
     
     def download(self):
         '''downloads the files'''
@@ -146,5 +162,5 @@ class WgetDownloader(object):
         self.query_builder()
         self.check_network()
         self.wget_execution()
-        self.exit_function()
+        self.exit_function(status=0)
         
