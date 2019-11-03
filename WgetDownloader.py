@@ -135,16 +135,20 @@ class WgetDownloader(object):
         from os import system
         #loop wget execution
         print("About to start looping")
+        files = 0
         for i in range(len(self.queries)):
             try:
                 status = system(self.queries[i])
                 print("finished no.{} loop".format(i))
                 if status != 0:
                     raise WgetError("Wget error")
+                else:
+                    files = files + 1
             except WgetError:
                 print("Wget couldn't download the link and returned status {}".format(status))
         #check if the number of queriees is the same as the number of links and names
         print("expected loops:{}".format(len(self.queries)-1))
+        print("downloaded {} links out of {}".format(files,(len(self.queries)-1)))
     
     def exit_function(self, status):
         '''exit'''
