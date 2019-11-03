@@ -30,6 +30,7 @@ class WgetDownloader(object):
                 #print(self.links)
         except FileNotFoundError:
             print("file not found")
+            self.exit_function(status=3)
         
         #open names file and read lines into list
         print("opening name file")
@@ -41,6 +42,7 @@ class WgetDownloader(object):
                 #print(self.names)
         except FileNotFoundError:
             print("file not found")
+            self.exit_function(status=3)
         
 
 
@@ -114,7 +116,7 @@ class WgetDownloader(object):
             internet_status = internet()
         except NoInternetAvailableError:        
             if internet_status() != True:
-                print("Network has failed")
+                print("Network not available. Cannot connect ot 8.8.8.8")
                 self.exit_function(status=4)
 
     def wget_execution(self):
@@ -147,8 +149,12 @@ class WgetDownloader(object):
     def exit_function(self, status):
         '''exit'''
         from sys import exit
-        print("done")
-        exit(status)
+        if status == 0:
+            print("done")
+            exit(status)
+        else:
+            print("error as status is{}".format(status))
+            exit(status)
 
     
     def download(self):
